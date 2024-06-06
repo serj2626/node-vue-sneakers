@@ -26,5 +26,6 @@ import Header from "./components/Header.vue";
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  
 }
 </style>

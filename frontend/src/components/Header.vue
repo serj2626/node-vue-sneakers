@@ -1,34 +1,28 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
-
 import { RouterLink } from "vue-router";
 </script>
 
 <template>
-  <div class="nav bg-slate-100">
-    <RouterLink class="nav-link" :to="{ name: 'products' }"
-      >Продукты</RouterLink
-    >
-    <RouterLink class="nav-link" :to="{ name: 'cart' }">Корзина</RouterLink>
-  </div>
+  <header class="h-20 bg-slate-100 text-xl">
+    <div class="max-w-7xl mx-auto flex justify-between align-center p-4">
+      <div class="flex">
+        <RouterLink class="nav-link" :to="{ name: 'products' }"
+          >Продукты</RouterLink
+        >
+      </div>
+      <div class="flex gap-4">
+        <RouterLink class="nav-link" :to="{ name: 'cart' }">Корзина</RouterLink>
+        <RouterLink class="nav-link" :to="{ name: 'login' }">Войти</RouterLink>
+        <RouterLink class="nav-link" :to="{ name: 'signup' }"
+          >Регистрация</RouterLink
+        >
+      </div>
+    </div>
+  </header>
 </template>
 
 <style scoped>
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  height: 100px;
-
-  & .nav-link {
-    text-decoration: none;
-    color: #000;
-    font-size: 26px;
-    font-weight: 600;
-  }
-}
-
 .router-link-exact-active {
   color: red;
   font-weight: 900;

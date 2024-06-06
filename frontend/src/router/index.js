@@ -8,7 +8,7 @@ const router = createRouter({
       path: "/:pathMatch(.*)*",
       name: "notFound",
       component: () => import("@/views/NotFoundView.vue"),
-      },
+    },
     {
       path: '/',
       name: 'products',
@@ -30,6 +30,16 @@ const router = createRouter({
       redirect: {
         name: 'products'
       }
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: () => import('../views/LoginView.vue')
+    },
+    {
+      path: "/signup",
+      name: "signup",
+      component: () => import('../views/SignupView.vue')
     },
 
   ]

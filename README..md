@@ -1,13 +1,3 @@
-# Соединить front vue.js и express.js
-
-> Пример использования front vue.js и express.js
-
-> [![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/sites/smart-pottery/deploys)
-
-> [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/Smart-Pottery/frontend&project-name=frontend)
-
-> [![GitHub stars](https://img.shields.io/github/stars/Smart-Pottery/frontend?style=social)](https://github.com/Smart-Pottery/frontend/stargazers)
-
 # File main.js
 
 ```js
@@ -21,9 +11,12 @@ createApp(App).mount("#app");
 ```
 
 
-#   file main.js
->   add CORS
+#   add CORS
 
-```js
-        
-```
+>   file vue-config.js
+
+    module.exports = {
+        devServer: {
+            proxy: "http://localhost:3000",
+        },
+    }

@@ -8,7 +8,7 @@ import { RouterLink } from "vue-router";
     <div class="max-w-7xl mx-auto flex justify-between align-center p-4">
       <div class="flex">
         <RouterLink class="nav-link" :to="{ name: 'products' }"
-          >Продукты</RouterLink
+          >Кроссовки</RouterLink
         >
       </div>
       <div class="flex gap-4">

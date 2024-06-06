@@ -1,17 +1,24 @@
-import bodyParser from "body-parser";
+// import bodyParser from "body-parser";
 import express from "express";
 import { MongoClient } from "mongodb";
+import { PORT, MONGO_URL } from "./config/settings.mjs";
 
-const PORT = 3000;
+
 
 
 const app = express();
 app.use(express.json());
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+})
+
 
 
 app.get("/products", async (req, res) => {
-    const client = await MongoClient.connect("mongodb://localhost:27017",
+    const client = await MongoClient.connect(MONGO_URL,
         { useUnifiedTopology: true, useNewUrlParser: true });
     const db = client.db("sneakers_db");
     const products = await db.collection("products").find({}).toArray();
@@ -24,7 +31,7 @@ app.get("/products", async (req, res) => {
 app.get("/products/:id", async (req, res) => {
     let { id } = req.params;
     id = +id;
-    const client = await MongoClient.connect("mongodb://localhost:27017",
+    const client = await MongoClient.connect(MONGO_URL,
         { useUnifiedTopology: true, useNewUrlParser: true });
     const db = client.db("sneakers_db");
 

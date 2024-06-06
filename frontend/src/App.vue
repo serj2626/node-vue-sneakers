@@ -8,7 +8,7 @@ import Header from "./components/Header.vue";
     <main class="container max-w-7xl mx-auto px-4 pt-16">
       <RouterView />
     </main>
-    <footer
+    <!-- <footer
       class="bg-green-700 bg-opacity-30
              text-3xl text-white text-center 
              fixed 
@@ -16,7 +16,7 @@ import Header from "./components/Header.vue";
              bottom-0 
              py-4"> 
       This is sticky fixed Footer. 
-    </footer> 
+    </footer>  -->
   </div>
 </template>
 

@@ -2,18 +2,15 @@
 import express from "express";
 import { MongoClient } from "mongodb";
 import { PORT, MONGO_URL } from "./config/settings.mjs";
-
+import { corseMiddleware } from "./utils/middleware.mjs";
 
 
 
 const app = express();
-app.use(express.json());
+app
+    .use(express.json())
+    .use(corseMiddleware)
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-})
 
 
 
@@ -40,7 +37,9 @@ app.get("/products/:id", async (req, res) => {
     if (product) {
         res.send({ "product": product });
     } else {
-        res.status(404).send({ msg: "Product Not Found" });
+        res
+            .status(404)
+            .send(product);
     }
     client.close();
 });

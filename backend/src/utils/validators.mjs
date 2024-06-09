@@ -10,8 +10,8 @@ export const createUserValidationSchema = {
   },
   email: {
     isLength: {
-      errorMessage: "Минимальная длина 6 и максимальная 10",
-      options: { min: 6, max: 10 },
+      errorMessage: "Минимальная длина 6 и максимальная 36",
+      options: { min: 6, max: 36 },
     },
     notEmpty: {
       errorMessage: "Поле 'email' обязательно для ввода",
@@ -19,8 +19,8 @@ export const createUserValidationSchema = {
   },
   password: {
     isLength: {
-      errorMessage: "Минимальная длина 3 и максимальная 10",
-      options: { min: 3, max: 10 },
+      errorMessage: "Минимальная длина 3",
+      options: { min: 3 },
     },
     notEmpty: {
       errorMessage: "Поле 'password' обязательно для ввода",

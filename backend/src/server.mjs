@@ -8,8 +8,8 @@ import router from "./routes/index.mjs";
 
 
 const PORT = settings.PORT;
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 mongoose
   .connect(settings.MONGO_URL)
@@ -18,14 +18,12 @@ mongoose
 
 const app = express();
 app
-  .use(express.json())
-  .use("/api", router)
-  .use("/images", express.static(path.join(__dirname, "../assets")))
-  .use(corseMiddleware);
+    .use(express.json())
+    .use(corseMiddleware) 
+    .use("/api", router)
+  // .use("/images", express.static(path.join(__dirname, "../assets")))
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, "../index.html"));
-});
+
 
 app.listen(PORT, () => {
   console.log(`Server started on port http://localhost:${PORT}`);

@@ -1,4 +1,3 @@
-// import bodyParser from "body-parser";
 import express from "express";
 import { corseMiddleware } from "./utils/middleware.mjs";
 import mongoose from 'mongoose';

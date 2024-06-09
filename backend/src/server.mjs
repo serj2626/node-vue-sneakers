@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import path from "path";
 import { fileURLToPath } from "url";
 import settings from "./config/settings.mjs";
+import router from "./routes/index.mjs";
+
 
 const PORT = settings.PORT;
 const __filename = fileURLToPath(import.meta.url);
@@ -17,6 +19,7 @@ mongoose
 const app = express();
 app
   .use(express.json())
+  .use("/api", router)
   .use("/images", express.static(path.join(__dirname, "../assets")))
   .use(corseMiddleware);
 

@@ -2,9 +2,10 @@ import { Router } from "express";
 
 const router = Router();
 
-router.get("/products",);
-router.post("/products",);
-router.get("/products/:id",);
-router.put("/products/:id",);
-router.delete("/products/:id",);
-export default router ;
+router.get("/",);
+router.post("/",);
+router.get("/:id",);
+router.put("/:id",);
+router.delete("/:id",);
+
+export default router;

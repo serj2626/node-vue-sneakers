@@ -26,7 +26,7 @@ const login = async (req, res) => {
       return res.status(400).send({ msg: "Неверный пароль" });
     }
     const token = generateAccessToken(user._id, user.email);
-    res.status(200).send({ access: token });
+    res.status(200).send({ "access": token, "user": user });
   } catch {
     res.status(404).send({ msg: "Пользователь не найден" });
   }

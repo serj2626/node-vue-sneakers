@@ -1,21 +1,23 @@
-import { ref, computed } from "vue";
+import { reactive, ref } from "vue";
 import { defineStore } from "pinia";
 
 export const useUserStore = defineStore("user", () => {
-  const user = ref({
+  const user = reactive({
+    id: "",
     username: "",
     email: "",
     password: "",
     isAuthenticated: false,
+    token: "",
   });
 
-  const doubleCount = computed(() => 2 * 2);
-  function authenticate(data) {
-    user.value.isAuthenticated = true;
-    user.value.username = data.username;
-    user.value.email = data.email;
-    user.value.password = data.password;
-  }
+  const auth = (data) => {
+    user.id = data.id;
+    user.username = data.username;
+    user.email = data.email;
+    user.isAuthenticated = true;
+    user.token = data.token;
+  };
 
-  return { user, doubleCount, authenticate };
+  return { user, auth };
 });

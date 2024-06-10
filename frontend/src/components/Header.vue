@@ -4,11 +4,11 @@ import { RouterLink } from "vue-router";
 </script>
 
 <template>
-  <header class="h-20 bg-slate-100 text-xl">
-    <div class="max-w-7xl mx-auto flex justify-between align-center p-4">
+  <header class="h-30 bg-slate-200 text-xl">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
       <div class="flex">
         <RouterLink class="nav-link" :to="{ name: 'products' }"
-          >Кроссовки</RouterLink
+          ><img src="@/assets/logo.png" alt=""><h1 class="">Sneakers</h1></RouterLink
         >
       </div>
       <div class="flex gap-4">
@@ -24,7 +24,7 @@ import { RouterLink } from "vue-router";
 
 <style scoped>
 .router-link-exact-active {
-  color: red;
+  color: rgb(20, 144, 215);
   font-weight: 900;
 }
 </style>

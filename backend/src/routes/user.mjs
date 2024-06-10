@@ -1,11 +1,13 @@
 import { Router } from "express";
 
-import { signUP } from "../controllers/user-controller.mjs";
+import { getUsers, signUP } from "../controllers/user-controller.mjs";
 import { checkSchema } from "express-validator";
-import { createUserValidationSchema } from "../utils/validators.mjs";
+import { createUserValidator } from "../utils/validators.mjs";
 
 const router = Router();
 
-router.post("/signup",checkSchema(createUserValidationSchema), signUP);
+router.get('/',getUsers);
+router.post("/signup",checkSchema(createUserValidator), signUP);
+router.post("/login",checkSchema(createUserValidator), signUP);
 
 export default router;

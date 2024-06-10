@@ -1,11 +1,11 @@
-export const createUserValidationSchema = {
+export const createUserValidator = {
   username: {
     isLength: {
       errorMessage: "Минимальная длина 3 и максимальная 10",
       options: { min: 3, max: 10 },
     },
     notEmpty: {
-      errorMessage: "Поле 'username' обязательно для вво",
+      errorMessage: "Поле 'username' обязательно",
     },
   },
   email: {
@@ -19,8 +19,8 @@ export const createUserValidationSchema = {
   },
   password: {
     isLength: {
-      errorMessage: "Минимальная длина 3",
-      options: { min: 3 },
+      errorMessage: "Минимальная длина 6",
+      options: { min: 6 },
     },
     notEmpty: {
       errorMessage: "Поле 'password' обязательно для ввода",

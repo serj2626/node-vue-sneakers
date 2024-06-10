@@ -1,5 +1,6 @@
 import './assets/main.css'
-
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
 import axios from 'axios'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -13,5 +14,6 @@ const app = createApp(App)
 
 app
     .use(createPinia())
+    .use(Toast)
     .use(router, axios)
     .mount('#app')

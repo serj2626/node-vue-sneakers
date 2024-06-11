@@ -16,7 +16,7 @@ import { cart } from "@/fake-data";
       <div class="flex flex-col md:flex-row border-b border-gray-400 py-4">
         <div class="flex-shrink-0">
           <img
-            src="@/assets/shoes2.jpg"
+            
             alt="Product image"
             class="w-32 h-32 object-cover"
           />

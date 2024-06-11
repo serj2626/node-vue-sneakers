@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 
 const productSchema = new mongoose.Schema({
-    name: String,
+    title: String,
     material: String,
     description: String,
     image: String,
@@ -14,7 +14,10 @@ const productSchema = new mongoose.Schema({
             text: String,
         },
     ],
-    likes: Number
+    likes: {
+        type: Number,
+        default: 0
+    }
 });
 
 

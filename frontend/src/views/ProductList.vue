@@ -5,7 +5,7 @@ import axios from "axios";
 const products = ref([]);
 
 onMounted(async () => {
-  const res = await axios.get("/products");
+  const res = await axios.get("/api/products");
   products.value = res.data;
   console.log(products.value);
 });
@@ -21,7 +21,7 @@ onMounted(async () => {
       >
         <img
           class="object-cover h-48 w-96"
-          src="@/assets/shoes5.jpg"
+          :src="product.image"
           alt="Forest"
         />
         <div class="px-6 py-4">
@@ -37,7 +37,7 @@ onMounted(async () => {
 
         <div class="px-6 pt-4 pb-2">
           <span class="me-9 mb-2">
-            <RouterLink :to="{ name: 'product', params: { id: product.id } }">
+            <RouterLink :to="{ name: 'product', params: { id: product._id } }">
               <button
                 class="py-2 px-3 bg-sky-500 text-white rounded-lg
                  hover:bg-sky-600"

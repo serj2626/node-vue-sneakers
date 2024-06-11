@@ -13,6 +13,9 @@ export const createUserValidator = {
       errorMessage: "Минимальная длина 6 и максимальная 36",
       options: { min: 6, max: 36 },
     },
+    isEmail: {
+      errorMessage: "Некорректный email",
+    },
     notEmpty: {
       errorMessage: "Поле 'email' обязательно для ввода",
     },

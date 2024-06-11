@@ -21,7 +21,7 @@ const login = async (req, res) => {
     if (!user) {
       return res.status(404).send({ msg: "Пользователь не найден" });
     }
-    const validationPsw = comparePassword(password, user.password);
+    const validationPsw = await comparePassword(password, user.password);
     if (!validationPsw) {
       return res.status(400).send({ msg: "Неверный пароль" });
     }
@@ -51,17 +51,6 @@ const signUP = (req, res) => {
     .catch((err) => HandleError(res, err));
 };
 
-const getUsers = (req, res) => {
-  User.find({}, { username: 1, email: 1 })
-    .then((data) => res.json(data))
-    .catch((err) => HandleError(res, err));
-};
 
-const getUserDetail = (req, res) => {
-  let { id } = req.params;
-  User.findById(id)
-    .then((data) => res.json(data))
-    .catch((err) => HandleError(res, err));
-};
 
 export { signUP, getUsers, getUserDetail, login };

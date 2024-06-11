@@ -9,7 +9,7 @@ const hashPassword = (password) => {
 };
 
 const comparePassword = (password, hash) => {
-  return bcrypt.compareSync(password, hash);
+  return bcrypt.compare(password, hash);
 };
 
 

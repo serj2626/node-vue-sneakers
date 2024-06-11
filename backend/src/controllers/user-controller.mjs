@@ -26,6 +26,7 @@ const login = async (req, res) => {
       return res.status(400).send({ msg: "Неверный пароль" });
     }
     const token = generateAccessToken(user._id, user.email);
+    // res.headers.authorization = `Bearer ${token}`
     res.status(200).send({ "access": token, "user": user });
   } catch {
     res.status(404).send({ msg: "Пользователь не найден" });
@@ -52,5 +53,12 @@ const signUP = (req, res) => {
 };
 
 
+const aboutMe = async (req, res) => {
+  const { id } = req.user
+  const user = await User.findById(id);
+  res.status(200).json({ username: user.username, email: user.email });
+};
 
-export { signUP, getUsers, getUserDetail, login };
+
+
+export { signUP, login, aboutMe };

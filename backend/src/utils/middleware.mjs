@@ -9,17 +9,18 @@ export const corseMiddleware = (req, res, next) => {
     next();
 }
 
-export const authUser = (req, res, next) => {
+export const checkAuth = (req, res, next) => {
     try {
         const token = req.headers.authorization.split(' ')[1]
         if (!token) {
-            return res.status(403).json({message: "Пользователь не авторизован"})
+            return res.status(403).json({ message: "Пользователь не авторизован" })
         }
         const payload = jwt.verify(token, settings.SECRET_KEY)
         req.user = payload
         next()
     } catch (e) {
         console.log(e)
-        return res.status(403).json({message: "Пользователь не авторизован"})
+        return res.status(403).json({ message: "Пользователь не авторизован" })
     }
 }
+
